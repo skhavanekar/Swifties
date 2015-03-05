@@ -27,6 +27,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
         //Show/Hide for initial set up
         stopRecordingButton.hidden = true
+        notificationRecordLabel.text = "Tap to Record"
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,9 +42,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         //TODO: Record voice.
         println("In RecordAudio")
         startRecordingButton.enabled = false
-        notificationRecordLabel.hidden = false
         stopRecordingButton.hidden = false
-        
+        notificationRecordLabel.text = "Recording in Progress. \nTap stop to end Recording!"
         StartRecording()
     }
     
@@ -74,7 +74,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func StopAudioRecording(sender: UIButton) {
         startRecordingButton.enabled = true
-        notificationRecordLabel.hidden = true
         stopRecordingButton.hidden = true
         
         audioRecorder.stop()
@@ -91,7 +90,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }else{
             println("Audio recording failed to complete!")
             startRecordingButton.enabled = true
-            notificationRecordLabel.hidden = true
             stopRecordingButton.hidden = true
         }
     }
