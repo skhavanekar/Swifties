@@ -77,11 +77,8 @@
 		427769CB1AA90C3600D804C5 /* Click Counter */ = {
 			isa = PBXGroup;
 			children = (
-				427769CE1AA90C3600D804C5 /* AppDelegate.swift */,
 				427769D01AA90C3600D804C5 /* ViewController.swift */,
 				427769D21AA90C3600D804C5 /* Main.storyboard */,
-				427769D51AA90C3600D804C5 /* Images.xcassets */,
-				427769D71AA90C3600D804C5 /* LaunchScreen.xib */,
 				427769CC1AA90C3600D804C5 /* Supporting Files */,
 			);
 			path = "Click Counter";
@@ -90,6 +87,9 @@
 		427769CC1AA90C3600D804C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				427769CE1AA90C3600D804C5 /* AppDelegate.swift */,
+				427769D51AA90C3600D804C5 /* Images.xcassets */,
+				427769D71AA90C3600D804C5 /* LaunchScreen.xib */,
 				427769CD1AA90C3600D804C5 /* Info.plist */,
 			);
 			name = "Supporting Files";
