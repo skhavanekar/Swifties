@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         
         makeButtonAt(CGRectMake(150, 200, 60, 60), withLabel: "Click", forSelector: "incrementCount")
         makeButtonAt(CGRectMake(250, 200, 60, 60), withLabel: "Decrement", forSelector: "decrementCount")
-        
+        makeButtonAt(CGRectMake(200, 280, 60, 60), withLabel: "Color", forSelector: "changeBackground")
     }
     
     func makeButtonAt(position:CGRect, withLabel:String, forSelector:Selector) -> UIButton{
@@ -65,6 +65,18 @@ class ViewController: UIViewController {
     func decrementCount(){
         decrementedCount -= 1
         decrement.text = "\(decrementedCount)"
+    }
+    
+    func changeBackground(){
+        self.view.backgroundColor = randomColor()
+    }
+    
+    func randomColor() -> UIColor{
+        return UIColor(red: randomFloat(), green: randomFloat(), blue: randomFloat(), alpha: 1)
+    }
+    
+    func randomFloat() -> CGFloat{
+        return CGFloat(Float(arc4random()) / Float(UINT32_MAX))
     }
 }
 
