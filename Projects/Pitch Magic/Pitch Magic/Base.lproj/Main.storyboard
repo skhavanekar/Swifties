@@ -27,7 +27,7 @@
                                     <action selector="RecordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="67j-NN-Frx"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diC-rr-kgB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diC-rr-kgB">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -150,15 +150,6 @@
                                     <action selector="PlayFastAudio:" destination="Sep-Z9-SyS" eventType="touchUpInside" id="kIC-tf-pLE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znU-ZZ-s2F">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" image="Stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopAudio:" destination="Sep-Z9-SyS" eventType="touchUpInside" id="gNc-l1-ogq"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OT-PC-NSw">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="DarthVader">
@@ -166,6 +157,31 @@
                                 </state>
                                 <connections>
                                     <action selector="PlayDarthVaderAudio:" destination="Sep-Z9-SyS" eventType="touchUpInside" id="u8k-gh-hf4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znU-ZZ-s2F">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="6CN-2V-120"/>
+                                    <constraint firstAttribute="height" constant="50" id="8PP-yk-TJV"/>
+                                </constraints>
+                                <state key="normal" image="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6CN-2V-120"/>
+                                        <exclude reference="8PP-yk-TJV"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6CN-2V-120"/>
+                                        <include reference="8PP-yk-TJV"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="stopAudio:" destination="Sep-Z9-SyS" eventType="touchUpInside" id="gNc-l1-ogq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -185,7 +201,7 @@
                                 <variation key="widthClass=compact" constant="50"/>
                             </constraint>
                             <constraint firstItem="cdS-IC-36C" firstAttribute="top" secondItem="znU-ZZ-s2F" secondAttribute="bottom" constant="20" id="f4h-cl-XKM">
-                                <variation key="widthClass=compact" constant="10"/>
+                                <variation key="widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="4OT-PC-NSw" secondAttribute="trailing" constant="50" id="h3T-L2-1W9">
                                 <variation key="widthClass=compact" constant="10"/>
@@ -197,8 +213,8 @@
                                 <exclude reference="AMq-aL-OOM"/>
                                 <exclude reference="OXn-jw-iHC"/>
                                 <exclude reference="7y0-Tw-KJQ"/>
-                                <exclude reference="znU-ZZ-s2F"/>
                                 <exclude reference="4OT-PC-NSw"/>
+                                <exclude reference="znU-ZZ-s2F"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="f4h-cl-XKM"/>
@@ -218,8 +234,8 @@
                                 <include reference="AMq-aL-OOM"/>
                                 <include reference="OXn-jw-iHC"/>
                                 <include reference="7y0-Tw-KJQ"/>
-                                <include reference="znU-ZZ-s2F"/>
                                 <include reference="4OT-PC-NSw"/>
+                                <include reference="znU-ZZ-s2F"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="f4h-cl-XKM"/>
