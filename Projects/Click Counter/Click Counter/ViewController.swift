@@ -10,7 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     var count = 0
+    var decrementedCount = 0
+    
     var increment:UILabel!
+    var decrement:UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,20 +23,32 @@ class ViewController: UIViewController {
     }
     
     func InitUI(){
-        increment = UILabel()
-        increment.frame = CGRectMake(150, 150, 60, 60)
-        increment.text = "\(0)"
-        increment.textColor = UIColor.redColor()
-        self.view.addSubview(increment)
+        increment = makeLabelAt(CGRectMake(150, 150, 60, 60))
+        decrement = makeLabelAt(CGRectMake(250, 150, 60, 60))
         
-        var incrementButton = UIButton()
-        incrementButton.frame = CGRectMake(150, 200, 60, 60)
-        incrementButton.setTitle("Increment", forState: UIControlState.Normal)
-        incrementButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        self.view.addSubview(incrementButton)
-        incrementButton.addTarget(self, action: "incrementCount", forControlEvents: UIControlEvents.TouchUpInside)
+        makeButtonAt(CGRectMake(150, 200, 60, 60), withLabel: "Click", forSelector: "incrementCount")
+        makeButtonAt(CGRectMake(250, 200, 60, 60), withLabel: "Decrement", forSelector: "decrementCount")
+        
     }
     
+    func makeButtonAt(position:CGRect, withLabel:String, forSelector:Selector) -> UIButton{
+        var nextButton = UIButton()
+        nextButton.frame = position
+        nextButton.setTitle(withLabel, forState: UIControlState.Normal)
+        nextButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        self.view.addSubview(nextButton)
+        nextButton.addTarget(self, action: forSelector, forControlEvents: UIControlEvents.TouchUpInside)
+        return nextButton
+    }
+    
+    func makeLabelAt(position:CGRect) -> UILabel{
+        var nextLabel = UILabel()
+        nextLabel.frame = position
+        nextLabel.text = "0"
+        nextLabel.textColor = UIColor.redColor()
+        self.view.addSubview(nextLabel)
+        return nextLabel
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,7 +57,14 @@ class ViewController: UIViewController {
 
     func incrementCount(){
         count += 1
+        decrementedCount += 1
         increment.text = "\(count)"
+        decrement.text = "\(decrementedCount)"
+    }
+    
+    func decrementCount(){
+        decrementedCount -= 1
+        decrement.text = "\(decrementedCount)"
     }
 }
 
