@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qjV-wm-r7q">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="UI_Experiments" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaU-fh-cyA">
+                                <rect key="frame" x="227" y="285" width="146" height="30"/>
+                                <state key="normal" title="Present Image Picker">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showImagePicker:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Tvb-4V-6VB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rK5-XN-4CM">
+                                <rect key="frame" x="247" y="323" width="107" height="30"/>
+                                <state key="normal" title="Present Activity">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showActivityView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="g6f-sV-qNY"/>
+                                    <action selector="showImagePicker:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Bn9-2k-VNV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBz-No-mrQ">
+                                <rect key="frame" x="256" y="361" width="89" height="30"/>
+                                <state key="normal" title="Present Alert">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showAlert:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="S0f-6e-kFV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rK5-XN-4CM" firstAttribute="top" secondItem="YaU-fh-cyA" secondAttribute="bottom" constant="8" id="VJ2-bT-ajg"/>
+                            <constraint firstAttribute="centerY" secondItem="YaU-fh-cyA" secondAttribute="centerY" id="eLj-Rc-fjc"/>
+                            <constraint firstItem="vBz-No-mrQ" firstAttribute="top" secondItem="rK5-XN-4CM" secondAttribute="bottom" constant="8" id="fWV-b9-nJW"/>
+                            <constraint firstAttribute="centerX" secondItem="vBz-No-mrQ" secondAttribute="centerX" constant="-0.5" id="i5U-1h-fD4"/>
+                            <constraint firstAttribute="centerX" secondItem="rK5-XN-4CM" secondAttribute="centerX" constant="-0.5" id="tZ0-fZ-Yle"/>
+                            <constraint firstAttribute="centerX" secondItem="YaU-fh-cyA" secondAttribute="centerX" constant="-0.5" id="x8b-Lb-duv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BCv-eA-19Y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="364"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="a7Z-kT-uzP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qjV-wm-r7q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mm2-kF-C3j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Dmj-T7-RlG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OyF-Vg-u2V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162" y="-329"/>
+        </scene>
+    </scenes>
+</document>
