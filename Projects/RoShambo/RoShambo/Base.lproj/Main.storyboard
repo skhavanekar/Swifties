@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ro Shambo Choice View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="choiceViewController" id="vXZ-lx-hvc" customClass="RoShamboChoiceViewController" customModule="RoShambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTX-bW-qEO">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="rock">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rockSelected:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ddB-t9-NYN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5P-HO-MvU">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="scissors">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Qgr-mR-uog" kind="presentation" identifier="onRoshambo" id="AQJ-Nk-JsY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-cJ-jTS">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="paper">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="159" y="215" width="75" height="65"/>
+                                </variation>
+                                <connections>
+                                    <action selector="paperSelected:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="V23-9b-9Je"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's have some fun!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0E-7q-BKE">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.70744032859999995" green="0.86134805479999998" blue="0.59992294599999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fTX-bW-qEO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="79" id="AP2-s1-vIM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f5P-HO-MvU" secondAttribute="trailing" constant="66" id="Iy2-Wf-WXH"/>
+                            <constraint firstItem="Lno-cJ-jTS" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="195" id="Q4i-3D-mYE"/>
+                            <constraint firstItem="f5P-HO-MvU" firstAttribute="top" secondItem="Lno-cJ-jTS" secondAttribute="bottom" constant="40" id="SLo-W9-y7b"/>
+                            <constraint firstAttribute="centerX" secondItem="Lno-cJ-jTS" secondAttribute="centerX" constant="2.5" id="VEw-OF-CU2"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="c0E-7q-BKE" secondAttribute="bottom" constant="86" id="b0b-nZ-c2P"/>
+                            <constraint firstItem="fTX-bW-qEO" firstAttribute="top" secondItem="Lno-cJ-jTS" secondAttribute="bottom" constant="40" id="b8o-FJ-fgP"/>
+                            <constraint firstAttribute="centerX" secondItem="c0E-7q-BKE" secondAttribute="centerX" id="uOx-dO-lo8"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="fTX-bW-qEO"/>
+                                <exclude reference="f5P-HO-MvU"/>
+                                <exclude reference="Lno-cJ-jTS"/>
+                                <exclude reference="c0E-7q-BKE"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Q4i-3D-mYE"/>
+                                <exclude reference="VEw-OF-CU2"/>
+                                <exclude reference="AP2-s1-vIM"/>
+                                <exclude reference="b8o-FJ-fgP"/>
+                                <exclude reference="Iy2-Wf-WXH"/>
+                                <exclude reference="SLo-W9-y7b"/>
+                                <exclude reference="uOx-dO-lo8"/>
+                                <exclude reference="b0b-nZ-c2P"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="fTX-bW-qEO"/>
+                                <include reference="f5P-HO-MvU"/>
+                                <include reference="Lno-cJ-jTS"/>
+                                <include reference="c0E-7q-BKE"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Q4i-3D-mYE"/>
+                                <include reference="VEw-OF-CU2"/>
+                                <include reference="AP2-s1-vIM"/>
+                                <include reference="b8o-FJ-fgP"/>
+                                <include reference="Iy2-Wf-WXH"/>
+                                <include reference="SLo-W9-y7b"/>
+                                <include reference="uOx-dO-lo8"/>
+                                <include reference="b0b-nZ-c2P"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <segue destination="Qgr-mR-uog" kind="presentation" identifier="onPaperSelected" id="oLh-TC-ilS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Ro Shambo Results View Controller-->
+        <scene sceneID="7ly-Eb-WJU">
+            <objects>
+                <viewController storyboardIdentifier="resultsViewController" id="Qgr-mR-uog" customClass="RoShamboResultsViewController" customModule="RoShambo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CD4-eB-V78"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Zd-18-fsw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a2I-nL-F00">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fM-Sb-Rcf">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgW-kq-lBP">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgain:" destination="Qgr-mR-uog" eventType="touchUpInside" id="XR8-Nt-DOG"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NOz-8d-X0r">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="108.5" y="52" width="183" height="200"/>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="7fM-Sb-Rcf" secondAttribute="centerX" constant="-0.5" id="0ja-gD-sOe"/>
+                            <constraint firstItem="5Zd-18-fsw" firstAttribute="top" secondItem="PgW-kq-lBP" secondAttribute="bottom" constant="20" id="IJK-Ve-azi"/>
+                            <constraint firstAttribute="centerY" secondItem="7fM-Sb-Rcf" secondAttribute="centerY" constant="0.5" id="Jmn-RU-Rgn"/>
+                            <constraint firstAttribute="centerX" secondItem="NOz-8d-X0r" secondAttribute="centerX" id="VEm-PK-IsJ"/>
+                            <constraint firstItem="7fM-Sb-Rcf" firstAttribute="top" secondItem="NOz-8d-X0r" secondAttribute="bottom" constant="37" id="Yno-UZ-eaA"/>
+                            <constraint firstAttribute="centerX" secondItem="PgW-kq-lBP" secondAttribute="centerX" constant="-0.5" id="oi6-MS-WVq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="7fM-Sb-Rcf"/>
+                                <exclude reference="PgW-kq-lBP"/>
+                                <exclude reference="NOz-8d-X0r"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="VEm-PK-IsJ"/>
+                                <exclude reference="0ja-gD-sOe"/>
+                                <exclude reference="Jmn-RU-Rgn"/>
+                                <exclude reference="Yno-UZ-eaA"/>
+                                <exclude reference="oi6-MS-WVq"/>
+                                <exclude reference="IJK-Ve-azi"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="7fM-Sb-Rcf"/>
+                                <include reference="PgW-kq-lBP"/>
+                                <include reference="NOz-8d-X0r"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="VEm-PK-IsJ"/>
+                                <include reference="0ja-gD-sOe"/>
+                                <include reference="Jmn-RU-Rgn"/>
+                                <include reference="Yno-UZ-eaA"/>
+                                <include reference="oi6-MS-WVq"/>
+                                <include reference="IJK-Ve-azi"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="result" destination="7fM-Sb-Rcf" id="dcf-xV-HNH"/>
+                        <outlet property="resultImage" destination="NOz-8d-X0r" id="D2q-93-3H6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHq-Gn-MGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078.5" y="362"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="paper" width="75" height="65"/>
+        <image name="rock" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AQJ-Nk-JsY"/>
+    </inferredMetricsTieBreakers>
+</document>
