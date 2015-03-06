@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         decrement = makeLabelAt(CGRectMake(250, 150, 60, 60))
         
         makeButtonAt(CGRectMake(150, 200, 60, 60), withLabel: "Click", forSelector: "incrementCount")
-        makeButtonAt(CGRectMake(250, 200, 60, 60), withLabel: "Decrement", forSelector: "decrementCount")
+        makeButtonAt(CGRectMake(250, 200, 60, 60), withLabel: "D-Click", forSelector: "decrementCount")
         makeButtonAt(CGRectMake(200, 280, 60, 60), withLabel: "Color", forSelector: "changeBackground")
     }
     
