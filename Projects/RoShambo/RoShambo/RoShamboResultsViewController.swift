@@ -9,10 +9,10 @@
 import UIKit
 
 class RoShamboResultsViewController: UIViewController {
-    var computersChoice:Roshambo?
-    var usersChoice:Roshambo?
     @IBOutlet weak var result: UILabel!
     @IBOutlet weak var resultImage: UIImageView!
+    
+    var match:RPSMatch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +22,21 @@ class RoShamboResultsViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if let usersChoiceValue = usersChoice?{
-            if let computerChoiceValue = computersChoice?{
-                let (message, imageName) = Roshambo.winner(usersChoiceValue, computerChoice: computerChoiceValue)
-                self.result.text = message
-                resultImage.image = UIImage(named: imageName)
-            }
+        var victoryMessage = ""
+        var (result, imageName) = ("", "")
+        if match.player == match.computer{
+            victoryMessage = "Tie..."
+            (result, imageName) = match.player.victoryData(match.computer)
+        }else if match.player.defeats(match.computer){
+            victoryMessage = "You win!"
+            (result, imageName) = match.player.victoryData(match.computer)
         }else{
-            self.result.text = "Data invalid!"
+            victoryMessage = "You lose!"
+            (result, imageName) = match.computer.victoryData(match.player)
         }
+        
+        self.result.text = victoryMessage+" "+result
+        resultImage.image = UIImage(named: imageName)
     }
 
     override func didReceiveMemoryWarning() {

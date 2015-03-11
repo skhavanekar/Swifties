@@ -14,7 +14,8 @@
 		424A7B541AAA0A3300FDD83D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424A7B521AAA0A3300FDD83D /* LaunchScreen.xib */; };
 		424A7B601AAA0A3300FDD83D /* RoShamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A7B5F1AAA0A3300FDD83D /* RoShamboTests.swift */; };
 		424A7B6A1AAA0D7800FDD83D /* RoShamboResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A7B691AAA0D7800FDD83D /* RoShamboResultsViewController.swift */; };
-		424A7B6C1AAA19BC00FDD83D /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A7B6B1AAA19BC00FDD83D /* Enums.swift */; };
+		425406F81AAFC3F400D3C5BD /* RPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425406F71AAFC3F400D3C5BD /* RPS.swift */; };
+		425406FA1AAFC79400D3C5BD /* RPSMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425406F91AAFC79400D3C5BD /* RPSMatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +40,8 @@
 		424A7B5E1AAA0A3300FDD83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		424A7B5F1AAA0A3300FDD83D /* RoShamboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoShamboTests.swift; sourceTree = "<group>"; };
 		424A7B691AAA0D7800FDD83D /* RoShamboResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoShamboResultsViewController.swift; sourceTree = "<group>"; };
-		424A7B6B1AAA19BC00FDD83D /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		425406F71AAFC3F400D3C5BD /* RPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RPS.swift; path = Model/RPS.swift; sourceTree = "<group>"; };
+		425406F91AAFC79400D3C5BD /* RPSMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RPSMatch.swift; path = Model/RPSMatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +83,11 @@
 		424A7B461AAA0A3300FDD83D /* RoShambo */ = {
 			isa = PBXGroup;
 			children = (
+				425406F61AAFC3D800D3C5BD /* Model */,
 				424A7B4B1AAA0A3300FDD83D /* RoShamboChoiceViewController.swift */,
 				424A7B691AAA0D7800FDD83D /* RoShamboResultsViewController.swift */,
 				424A7B4D1AAA0A3300FDD83D /* Main.storyboard */,
 				424A7B471AAA0A3300FDD83D /* Supporting Files */,
-				424A7B6B1AAA19BC00FDD83D /* Enums.swift */,
 			);
 			path = RoShambo;
 			sourceTree = "<group>";
@@ -116,6 +118,15 @@
 				424A7B5E1AAA0A3300FDD83D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		425406F61AAFC3D800D3C5BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				425406F71AAFC3F400D3C5BD /* RPS.swift */,
+				425406F91AAFC79400D3C5BD /* RPSMatch.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,8 +231,9 @@
 			files = (
 				424A7B4C1AAA0A3300FDD83D /* RoShamboChoiceViewController.swift in Sources */,
 				424A7B4A1AAA0A3300FDD83D /* AppDelegate.swift in Sources */,
-				424A7B6C1AAA19BC00FDD83D /* Enums.swift in Sources */,
+				425406FA1AAFC79400D3C5BD /* RPSMatch.swift in Sources */,
 				424A7B6A1AAA0D7800FDD83D /* RoShamboResultsViewController.swift in Sources */,
+				425406F81AAFC3F400D3C5BD /* RPS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +425,7 @@
 				424A7B651AAA0A3300FDD83D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		424A7B661AAA0A3300FDD83D /* Build configuration list for PBXNativeTarget "RoShamboTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +434,7 @@
 				424A7B681AAA0A3300FDD83D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

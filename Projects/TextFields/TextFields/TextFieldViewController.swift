@@ -15,6 +15,8 @@ class TextFieldViewController: UIViewController {
     @IBOutlet weak var editNormalText: UISwitch!
 
     let zipCodeDelegate = ZipcodeTextFieldDelegate()
+    let currencyDelegate = CurrencyTextFieldDelegate()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class TextFieldViewController: UIViewController {
         
         
         zipcode.delegate = zipCodeDelegate
+        currency.delegate = currencyDelegate
     }
 
     override func didReceiveMemoryWarning() {

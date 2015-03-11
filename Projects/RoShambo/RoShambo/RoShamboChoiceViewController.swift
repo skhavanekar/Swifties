@@ -26,24 +26,29 @@ class RoShamboChoiceViewController: UIViewController {
         
         resultViewController = self.storyboard?.instantiateViewControllerWithIdentifier("resultsViewController") as RoShamboResultsViewController
         
-        resultViewController.usersChoice = Roshambo.Rock
-        resultViewController.computersChoice = Roshambo.random()
-
+        let match = RPSMatch(player: .Rock, computer: RPS())
+        resultViewController.match = match
+        
         self.presentViewController(resultViewController, animated: true, completion: nil)
     }
 
     @IBAction func paperSelected(sender: UIButton) {
         self.performSegueWithIdentifier("onPaperSelected", sender: self)
     }
+    @IBAction func showHistory(sender: UIButton) {
+        self.performSegueWithIdentifier("showHistory", sender: self)
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let userChoice = segue.identifier == "onPaperSelected" ? Roshambo.Paper : Roshambo.Scissors
+        let userChoice = segue.identifier == "onPaperSelected" ? RPS.Paper : RPS.Scissors
         
         
         if segue.identifier == "onRoshambo" || segue.identifier == "onPaperSelected"{
             let roshamboResultsViewController = segue.destinationViewController as RoShamboResultsViewController
-            roshamboResultsViewController.usersChoice = userChoice
-            roshamboResultsViewController.computersChoice = Roshambo.random()
+            
+            let match = RPSMatch(player: userChoice, computer: RPS())
+            roshamboResultsViewController.match = match
+            
         }
     }
     

@@ -14,6 +14,7 @@
 		424A7B881AAD878400FDD83D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 424A7B861AAD878400FDD83D /* LaunchScreen.xib */; };
 		424A7B941AAD878400FDD83D /* TextFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A7B931AAD878400FDD83D /* TextFieldsTests.swift */; };
 		424A7B9F1AAD89B500FDD83D /* ZipcodeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A7B9E1AAD89B500FDD83D /* ZipcodeTextFieldDelegate.swift */; };
+		424A7BA11AAD94AE00FDD83D /* CurrencyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424A7BA01AAD94AE00FDD83D /* CurrencyTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		424A7B921AAD878400FDD83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		424A7B931AAD878400FDD83D /* TextFieldsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsTests.swift; sourceTree = "<group>"; };
 		424A7B9E1AAD89B500FDD83D /* ZipcodeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipcodeTextFieldDelegate.swift; path = Delegates/ZipcodeTextFieldDelegate.swift; sourceTree = "<group>"; };
+		424A7BA01AAD94AE00FDD83D /* CurrencyTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyTextFieldDelegate.swift; path = Delegates/CurrencyTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				424A7B9E1AAD89B500FDD83D /* ZipcodeTextFieldDelegate.swift */,
+				424A7BA01AAD94AE00FDD83D /* CurrencyTextFieldDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				424A7B801AAD878400FDD83D /* TextFieldViewController.swift in Sources */,
+				424A7BA11AAD94AE00FDD83D /* CurrencyTextFieldDelegate.swift in Sources */,
 				424A7B7E1AAD878400FDD83D /* AppDelegate.swift in Sources */,
 				424A7B9F1AAD89B500FDD83D /* ZipcodeTextFieldDelegate.swift in Sources */,
 			);
