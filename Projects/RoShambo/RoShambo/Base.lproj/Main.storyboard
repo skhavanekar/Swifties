@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Ro Shambo Choice View Controller-->
+        <!--Make your choice wisely!-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController storyboardIdentifier="choiceViewController" id="vXZ-lx-hvc" customClass="RoShamboChoiceViewController" customModule="RoShambo" customModuleProvider="target" sceneMemberID="viewController">
@@ -129,7 +129,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="3N2-p4-eIb"/>
+                    <navigationItem key="navigationItem" title="Make your choice wisely!" id="3N2-p4-eIb"/>
                     <connections>
                         <segue destination="Qgr-mR-uog" kind="presentation" identifier="onPaperSelected" id="oLh-TC-ilS"/>
                         <segue destination="ElU-FY-9qX" kind="show" identifier="showHistory" id="01K-cr-Uox"/>
@@ -186,7 +186,7 @@
                                 </variation>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.70744032859999995" green="0.86134805479999998" blue="0.59992294599999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="7fM-Sb-Rcf" secondAttribute="centerX" constant="-0.5" id="0ja-gD-sOe"/>
                             <constraint firstItem="5Zd-18-fsw" firstAttribute="top" secondItem="PgW-kq-lBP" secondAttribute="bottom" constant="20" id="IJK-Ve-azi"/>
@@ -235,10 +235,10 @@
             </objects>
             <point key="canvasLocation" x="1866" y="277"/>
         </scene>
-        <!--History View Controller-->
+        <!--Match History-->
         <scene sceneID="zcX-4a-BGl">
             <objects>
-                <viewController id="ElU-FY-9qX" customClass="RPSHistoryViewController" customModule="RoShambo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Match History" id="ElU-FY-9qX" customClass="RPSHistoryViewController" customModule="RoShambo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KWB-3c-DA9"/>
                         <viewControllerLayoutGuide type="bottom" id="s7T-ad-LdK"/>
@@ -248,7 +248,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Xgy-nG-gfw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="winnerRPS" textLabel="Vdv-Ge-83W" style="IBUITableViewCellStyleDefault" id="QvG-Nt-vbI">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -266,18 +266,16 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.001436733902" green="0.47811226220000003" blue="0.1086939561" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="28" width="400" height="572"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="ElU-FY-9qX" id="0Hq-ig-7im"/>
                                     <outlet property="delegate" destination="ElU-FY-9qX" id="O3h-cL-JBM"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.70744032859999995" green="0.86134805479999998" blue="0.59992294599999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Xgy-nG-gfw" secondAttribute="trailing" id="2Jf-6x-ibj"/>
                             <constraint firstItem="Xgy-nG-gfw" firstAttribute="top" secondItem="rJn-Fu-SDP" secondAttribute="top" id="Pqd-iv-Pjj">
@@ -315,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYe-zX-jpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1971" y="811"/>
+            <point key="canvasLocation" x="2161.5" y="728"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kMv-b8-ujN">
