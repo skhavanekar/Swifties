@@ -22,4 +22,23 @@ struct RPSMatch {
             return player.defeats(computer) ? player : computer
         }
     }
+    
+    var result: (message: String, image:String){
+        get{
+            var victoryMessage = ""
+            var (result, imageName) = ("", "")
+            if player == computer{
+                (result, imageName) = player.victoryData(computer)
+            }else if player.defeats(computer){
+                victoryMessage = "You win!"
+                (result, imageName) = player.victoryData(computer)
+            }else{
+                victoryMessage = "You lose!"
+                (result, imageName) = computer.victoryData(player)
+            }
+            
+            return (victoryMessage+" "+result, imageName)
+            
+        }
+    }
 }

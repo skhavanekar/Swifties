@@ -9,7 +9,7 @@
 import UIKit
 
 class RoShamboChoiceViewController: UIViewController {
-
+    var matchHistory:[RPSMatch] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,6 +27,7 @@ class RoShamboChoiceViewController: UIViewController {
         resultViewController = self.storyboard?.instantiateViewControllerWithIdentifier("resultsViewController") as RoShamboResultsViewController
         
         let match = RPSMatch(player: .Rock, computer: RPS())
+        matchHistory.append(match)
         resultViewController.match = match
         
         self.presentViewController(resultViewController, animated: true, completion: nil)
@@ -40,13 +41,19 @@ class RoShamboChoiceViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showHistory"{
+            let historyViewController = segue.destinationViewController as RPSHistoryViewController
+            historyViewController.matchHistory = matchHistory
+            return
+        }
+        
+        
         let userChoice = segue.identifier == "onPaperSelected" ? RPS.Paper : RPS.Scissors
-        
-        
         if segue.identifier == "onRoshambo" || segue.identifier == "onPaperSelected"{
             let roshamboResultsViewController = segue.destinationViewController as RoShamboResultsViewController
             
             let match = RPSMatch(player: userChoice, computer: RPS())
+            matchHistory.append(match)
             roshamboResultsViewController.match = match
             
         }

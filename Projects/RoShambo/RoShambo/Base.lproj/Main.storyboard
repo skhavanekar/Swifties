@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O5v-GE-Pqn">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -23,6 +23,9 @@
                                 <state key="normal" image="rock">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="95" y="320" width="75" height="65"/>
+                                </variation>
                                 <connections>
                                     <action selector="rockSelected:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ddB-t9-NYN"/>
                                 </connections>
@@ -32,6 +35,9 @@
                                 <state key="normal" image="scissors">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="243" y="320" width="75" height="65"/>
+                                </variation>
                                 <connections>
                                     <segue destination="Qgr-mR-uog" kind="presentation" identifier="onRoshambo" id="AQJ-Nk-JsY"/>
                                 </connections>
@@ -41,6 +47,9 @@
                                 <state key="normal" image="paper">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="160" y="215" width="75" height="65"/>
+                                </variation>
                                 <connections>
                                     <action selector="paperSelected:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="V23-9b-9Je"/>
                                 </connections>
@@ -56,6 +65,9 @@
                                 <state key="normal" title="History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="338" y="28" width="49" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="showHistory:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ci6-fX-76d"/>
                                 </connections>
@@ -117,6 +129,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="3N2-p4-eIb"/>
                     <connections>
                         <segue destination="Qgr-mR-uog" kind="presentation" identifier="onPaperSelected" id="oLh-TC-ilS"/>
                         <segue destination="ElU-FY-9qX" kind="show" identifier="showHistory" id="01K-cr-Uox"/>
@@ -124,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169.5" y="378"/>
+            <point key="canvasLocation" x="1087.5" y="378"/>
         </scene>
         <!--Ro Shambo Results View Controller-->
         <scene sceneID="7ly-Eb-WJU">
@@ -220,12 +233,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pHq-Gn-MGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="277"/>
+            <point key="canvasLocation" x="1866" y="277"/>
         </scene>
-        <!--View Controller-->
+        <!--History View Controller-->
         <scene sceneID="zcX-4a-BGl">
             <objects>
-                <viewController id="ElU-FY-9qX" sceneMemberID="viewController">
+                <viewController id="ElU-FY-9qX" customClass="RPSHistoryViewController" customModule="RoShambo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KWB-3c-DA9"/>
                         <viewControllerLayoutGuide type="bottom" id="s7T-ad-LdK"/>
@@ -237,7 +250,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Vdv-Ge-83W" detailTextLabel="kV9-Mf-ugF" style="IBUITableViewCellStyleSubtitle" id="QvG-Nt-vbI">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="winnerRPS" textLabel="Vdv-Ge-83W" style="IBUITableViewCellStyleDefault" id="QvG-Nt-vbI">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QvG-Nt-vbI" id="8Rk-aK-bBG">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -251,27 +264,28 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kV9-Mf-ugF">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    </variation>
-                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="28" width="400" height="572"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="ElU-FY-9qX" id="0Hq-ig-7im"/>
+                                    <outlet property="delegate" destination="ElU-FY-9qX" id="O3h-cL-JBM"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Xgy-nG-gfw" secondAttribute="trailing" id="2Jf-6x-ibj"/>
-                            <constraint firstItem="Xgy-nG-gfw" firstAttribute="top" secondItem="rJn-Fu-SDP" secondAttribute="top" id="Pqd-iv-Pjj"/>
+                            <constraint firstItem="Xgy-nG-gfw" firstAttribute="top" secondItem="rJn-Fu-SDP" secondAttribute="top" id="Pqd-iv-Pjj">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="Xgy-nG-gfw" firstAttribute="bottom" secondItem="s7T-ad-LdK" secondAttribute="top" id="Wrr-YN-hl4"/>
                             <constraint firstItem="Xgy-nG-gfw" firstAttribute="leading" secondItem="rJn-Fu-SDP" secondAttribute="leading" id="eqK-uO-EI8"/>
+                            <constraint firstItem="Xgy-nG-gfw" firstAttribute="top" secondItem="KWB-3c-DA9" secondAttribute="bottom" constant="8" symbolic="YES" id="zCR-fM-hzr"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -282,6 +296,7 @@
                                 <exclude reference="Pqd-iv-Pjj"/>
                                 <exclude reference="Wrr-YN-hl4"/>
                                 <exclude reference="eqK-uO-EI8"/>
+                                <exclude reference="zCR-fM-hzr"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -290,16 +305,35 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="2Jf-6x-ibj"/>
-                                <include reference="Pqd-iv-Pjj"/>
+                                <exclude reference="Pqd-iv-Pjj"/>
                                 <include reference="Wrr-YN-hl4"/>
                                 <include reference="eqK-uO-EI8"/>
+                                <include reference="zCR-fM-hzr"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYe-zX-jpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053" y="811"/>
+            <point key="canvasLocation" x="1971" y="811"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kMv-b8-ujN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O5v-GE-Pqn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wyr-ko-DPV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Jqn-Qy-bAm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aoN-5B-6ew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169.5" y="378"/>
         </scene>
     </scenes>
     <resources>

@@ -22,20 +22,9 @@ class RoShamboResultsViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        var victoryMessage = ""
-        var (result, imageName) = ("", "")
-        if match.player == match.computer{
-            victoryMessage = "Tie..."
-            (result, imageName) = match.player.victoryData(match.computer)
-        }else if match.player.defeats(match.computer){
-            victoryMessage = "You win!"
-            (result, imageName) = match.player.victoryData(match.computer)
-        }else{
-            victoryMessage = "You lose!"
-            (result, imageName) = match.computer.victoryData(match.player)
-        }
         
-        self.result.text = victoryMessage+" "+result
+        var (result, imageName) = match.result
+        self.result.text = result
         resultImage.image = UIImage(named: imageName)
     }
 
