@@ -48,10 +48,14 @@ class PitchEngine{
         audioEngine.connect(audioPlayerNode, to: audioPitch, format: nil)
         audioEngine.connect(audioPitch, to: audioEngine.outputNode, format: nil)
         
-        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+        audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: onAudioCompletion)
                 
         audioEngine.startAndReturnError(nil)
         audioPlayerNode.play()
+    }
+    
+    func onAudioCompletion(){
+        println("Audio playback just completed!")
     }
     
     func stopAllAudio(){
