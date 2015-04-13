@@ -55,6 +55,9 @@ class PitchEngine{
     }
     
     func onAudioCompletion(){
+        dispatch_async(dispatch_get_main_queue()){
+            println("Audio 1 playback just completed!")
+        }
         println("Audio playback just completed!")
     }
     
