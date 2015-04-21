@@ -77,11 +77,8 @@
 		4220666F1ADC5A7F00ED29DC /* Image Magic */ = {
 			isa = PBXGroup;
 			children = (
-				422066721ADC5A7F00ED29DC /* AppDelegate.swift */,
 				422066741ADC5A7F00ED29DC /* ViewController.swift */,
 				422066761ADC5A7F00ED29DC /* Main.storyboard */,
-				422066791ADC5A7F00ED29DC /* Images.xcassets */,
-				4220667B1ADC5A7F00ED29DC /* LaunchScreen.xib */,
 				422066701ADC5A7F00ED29DC /* Supporting Files */,
 			);
 			path = "Image Magic";
@@ -90,6 +87,9 @@
 		422066701ADC5A7F00ED29DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4220667B1ADC5A7F00ED29DC /* LaunchScreen.xib */,
+				422066791ADC5A7F00ED29DC /* Images.xcassets */,
+				422066721ADC5A7F00ED29DC /* AppDelegate.swift */,
 				422066711ADC5A7F00ED29DC /* Info.plist */,
 			);
 			name = "Supporting Files";

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O5v-GE-Pqn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="O5v-GE-Pqn">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -23,9 +23,6 @@
                                 <state key="normal" image="rock">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="95" y="320" width="75" height="65"/>
-                                </variation>
                                 <connections>
                                     <action selector="rockSelected:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ddB-t9-NYN"/>
                                 </connections>
@@ -35,9 +32,6 @@
                                 <state key="normal" image="scissors">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="243" y="320" width="75" height="65"/>
-                                </variation>
                                 <connections>
                                     <segue destination="Qgr-mR-uog" kind="presentation" identifier="onRoshambo" id="AQJ-Nk-JsY"/>
                                 </connections>
@@ -47,9 +41,6 @@
                                 <state key="normal" image="paper">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="160" y="215" width="75" height="65"/>
-                                </variation>
                                 <connections>
                                     <action selector="paperSelected:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="V23-9b-9Je"/>
                                 </connections>
@@ -65,9 +56,6 @@
                                 <state key="normal" title="History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="338" y="28" width="49" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="showHistory:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ci6-fX-76d"/>
                                 </connections>
@@ -95,16 +83,16 @@
                                 <exclude reference="H0L-LJ-7rA"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Q4i-3D-mYE"/>
-                                <exclude reference="VEw-OF-CU2"/>
-                                <exclude reference="AP2-s1-vIM"/>
-                                <exclude reference="b8o-FJ-fgP"/>
+                                <exclude reference="b0b-nZ-c2P"/>
+                                <exclude reference="uOx-dO-lo8"/>
                                 <exclude reference="3Lk-1E-ZVT"/>
                                 <exclude reference="hAh-Ih-x9Z"/>
+                                <exclude reference="Q4i-3D-mYE"/>
+                                <exclude reference="VEw-OF-CU2"/>
                                 <exclude reference="Iy2-Wf-WXH"/>
                                 <exclude reference="SLo-W9-y7b"/>
-                                <exclude reference="uOx-dO-lo8"/>
-                                <exclude reference="b0b-nZ-c2P"/>
+                                <exclude reference="AP2-s1-vIM"/>
+                                <exclude reference="b8o-FJ-fgP"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -116,16 +104,16 @@
                                 <include reference="H0L-LJ-7rA"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Q4i-3D-mYE"/>
-                                <include reference="VEw-OF-CU2"/>
-                                <include reference="AP2-s1-vIM"/>
-                                <include reference="b8o-FJ-fgP"/>
+                                <include reference="b0b-nZ-c2P"/>
+                                <include reference="uOx-dO-lo8"/>
                                 <include reference="3Lk-1E-ZVT"/>
                                 <include reference="hAh-Ih-x9Z"/>
+                                <include reference="Q4i-3D-mYE"/>
+                                <include reference="VEw-OF-CU2"/>
                                 <include reference="Iy2-Wf-WXH"/>
                                 <include reference="SLo-W9-y7b"/>
-                                <include reference="uOx-dO-lo8"/>
-                                <include reference="b0b-nZ-c2P"/>
+                                <include reference="AP2-s1-vIM"/>
+                                <include reference="b8o-FJ-fgP"/>
                             </mask>
                         </variation>
                     </view>
@@ -244,6 +232,7 @@
                         <viewControllerLayoutGuide type="bottom" id="s7T-ad-LdK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rJn-Fu-SDP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Xgy-nG-gfw">
