@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		420424481AE59DA700D2F3C8 /* MeMeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420424471AE59DA700D2F3C8 /* MeMeDetailViewController.swift */; };
+		420424601AE6C8B700D2F3C8 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4204245C1AE6C8B700D2F3C8 /* Bolts.framework */; };
+		420424611AE6C8B700D2F3C8 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4204245D1AE6C8B700D2F3C8 /* FBSDKCoreKit.framework */; };
+		420424621AE6C8B700D2F3C8 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4204245E1AE6C8B700D2F3C8 /* FBSDKLoginKit.framework */; };
+		420424631AE6C8B700D2F3C8 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4204245F1AE6C8B700D2F3C8 /* FBSDKShareKit.framework */; };
+		420424671AE6CA7700D2F3C8 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 420424661AE6CA7700D2F3C8 /* Test.m */; };
+		420424691AE6CC7900D2F3C8 /* MeMeFacebookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420424681AE6CC7900D2F3C8 /* MeMeFacebookViewController.swift */; };
 		422066A11ADC68AB00ED29DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422066A01ADC68AB00ED29DC /* AppDelegate.swift */; };
 		422066A61ADC68AB00ED29DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 422066A41ADC68AB00ED29DC /* Main.storyboard */; };
 		422066A81ADC68AB00ED29DC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 422066A71ADC68AB00ED29DC /* Images.xcassets */; };
@@ -19,6 +25,9 @@
 		42AAE28E1AE06C4E0013C39B /* MeMeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AAE28D1AE06C4E0013C39B /* MeMeCollectionViewController.swift */; };
 		42AAE2901AE06C790013C39B /* MeMeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AAE28F1AE06C790013C39B /* MeMeTableViewController.swift */; };
 		42AAE2971AE0812D0013C39B /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AAE2961AE0812D0013C39B /* MemeCollectionViewCell.swift */; };
+		42FDFE631AE78AD60098BF5C /* FBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FDFE621AE78AD60098BF5C /* FBManager.swift */; };
+		42FDFE651AE795DC0098BF5C /* FBAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FDFE641AE795DC0098BF5C /* FBAlbum.swift */; };
+		42FDFE671AE99A470098BF5C /* FBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FDFE661AE99A470098BF5C /* FBCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +42,13 @@
 
 /* Begin PBXFileReference section */
 		420424471AE59DA700D2F3C8 /* MeMeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeMeDetailViewController.swift; path = Controller/MeMeDetailViewController.swift; sourceTree = "<group>"; };
+		4204245C1AE6C8B700D2F3C8 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		4204245D1AE6C8B700D2F3C8 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4204245E1AE6C8B700D2F3C8 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		4204245F1AE6C8B700D2F3C8 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		420424651AE6CA7700D2F3C8 /* MeMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MeMe-Bridging-Header.h"; sourceTree = "<group>"; };
+		420424661AE6CA7700D2F3C8 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Test.m; path = Header/Test.m; sourceTree = "<group>"; };
+		420424681AE6CC7900D2F3C8 /* MeMeFacebookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeMeFacebookViewController.swift; path = Controller/MeMeFacebookViewController.swift; sourceTree = "<group>"; };
 		4220669B1ADC68AB00ED29DC /* MeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4220669F1ADC68AB00ED29DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		422066A01ADC68AB00ED29DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +64,9 @@
 		42AAE28D1AE06C4E0013C39B /* MeMeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeMeCollectionViewController.swift; path = Controller/MeMeCollectionViewController.swift; sourceTree = "<group>"; };
 		42AAE28F1AE06C790013C39B /* MeMeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeMeTableViewController.swift; path = Controller/MeMeTableViewController.swift; sourceTree = "<group>"; };
 		42AAE2961AE0812D0013C39B /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemeCollectionViewCell.swift; path = View/MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		42FDFE621AE78AD60098BF5C /* FBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBManager.swift; path = Model/FBManager.swift; sourceTree = "<group>"; };
+		42FDFE641AE795DC0098BF5C /* FBAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBAlbum.swift; path = Model/FBAlbum.swift; sourceTree = "<group>"; };
+		42FDFE661AE99A470098BF5C /* FBCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FBCollectionViewCell.swift; path = View/FBCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +74,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				420424631AE6C8B700D2F3C8 /* FBSDKShareKit.framework in Frameworks */,
+				420424601AE6C8B700D2F3C8 /* Bolts.framework in Frameworks */,
+				420424611AE6C8B700D2F3C8 /* FBSDKCoreKit.framework in Frameworks */,
+				420424621AE6C8B700D2F3C8 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4204244F1AE6C15400D2F3C8 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				420424661AE6CA7700D2F3C8 /* Test.m */,
+				420424651AE6CA7700D2F3C8 /* MeMe-Bridging-Header.h */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
 		422066921ADC68AB00ED29DC = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +121,7 @@
 		4220669D1ADC68AB00ED29DC /* MeMe */ = {
 			isa = PBXGroup;
 			children = (
+				4204244F1AE6C15400D2F3C8 /* Header */,
 				42AAE2951AE081160013C39B /* View */,
 				42AAE28A1AE043040013C39B /* Model */,
 				422066C31ADC737500ED29DC /* Delegate */,
@@ -102,6 +135,10 @@
 		4220669E1ADC68AB00ED29DC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4204245C1AE6C8B700D2F3C8 /* Bolts.framework */,
+				4204245D1AE6C8B700D2F3C8 /* FBSDKCoreKit.framework */,
+				4204245E1AE6C8B700D2F3C8 /* FBSDKLoginKit.framework */,
+				4204245F1AE6C8B700D2F3C8 /* FBSDKShareKit.framework */,
 				422066A91ADC68AB00ED29DC /* LaunchScreen.xib */,
 				422066A71ADC68AB00ED29DC /* Images.xcassets */,
 				422066A01ADC68AB00ED29DC /* AppDelegate.swift */,
@@ -134,6 +171,7 @@
 				42AAE28D1AE06C4E0013C39B /* MeMeCollectionViewController.swift */,
 				42AAE28F1AE06C790013C39B /* MeMeTableViewController.swift */,
 				420424471AE59DA700D2F3C8 /* MeMeDetailViewController.swift */,
+				420424681AE6CC7900D2F3C8 /* MeMeFacebookViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -150,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				42AAE28B1AE0432F0013C39B /* Meme.swift */,
+				42FDFE621AE78AD60098BF5C /* FBManager.swift */,
+				42FDFE641AE795DC0098BF5C /* FBAlbum.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -158,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				42AAE2961AE0812D0013C39B /* MemeCollectionViewCell.swift */,
+				42FDFE661AE99A470098BF5C /* FBCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -263,8 +304,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				422066C51ADC73BF00ED29DC /* MeMeTextFieldDelegate.swift in Sources */,
+				42FDFE631AE78AD60098BF5C /* FBManager.swift in Sources */,
 				42AAE2901AE06C790013C39B /* MeMeTableViewController.swift in Sources */,
 				42AAE28C1AE0432F0013C39B /* Meme.swift in Sources */,
+				420424671AE6CA7700D2F3C8 /* Test.m in Sources */,
+				42FDFE651AE795DC0098BF5C /* FBAlbum.swift in Sources */,
+				42FDFE671AE99A470098BF5C /* FBCollectionViewCell.swift in Sources */,
+				420424691AE6CC7900D2F3C8 /* MeMeFacebookViewController.swift in Sources */,
 				422066A11ADC68AB00ED29DC /* AppDelegate.swift in Sources */,
 				42AAE2971AE0812D0013C39B /* MemeCollectionViewCell.swift in Sources */,
 				42AAE28E1AE06C4E0013C39B /* MeMeCollectionViewController.swift in Sources */,
@@ -396,9 +442,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MeMe",
+					/Users/sameer/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = MeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MeMe/MeMe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -406,9 +460,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MeMe",
+					/Users/sameer/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = MeMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MeMe/MeMe-Bridging-Header.h";
 			};
 			name = Release;
 		};

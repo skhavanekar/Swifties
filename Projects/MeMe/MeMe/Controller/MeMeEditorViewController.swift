@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MeMeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MeMeEditorViewController: UIViewController, UIImagePickerControllerDelegate, MeMeFacebookViewControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var selectedImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -62,6 +62,23 @@ class MeMeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     @IBAction func selectAnImageFromAlbum(sender: UIBarButtonItem) {
         pickImageFromSource(UIImagePickerControllerSourceType.PhotoLibrary)
+    }
+    
+    @IBAction func selectAnImageFromFacebook(sender: UIBarButtonItem) {
+        let navController = self.storyboard?.instantiateViewControllerWithIdentifier("facebookNavigationController") as! UINavigationController
+        let facebookNavController: MeMeFacebookViewController = navController.viewControllers[0] as! MeMeFacebookViewController
+        
+        //let facebookNavController = self.storyboard?.instantiateViewControllerWithIdentifier("facebookViewController") as! MeMeFacebookViewController
+        
+        facebookNavController.delegate = self
+        self.presentViewController(navController, animated: true, completion: nil)
+    }
+    
+    func memeFacebookViewController(picker: MeMeFacebookViewController, didFinishPickingMediaWithInfo image: UIImage) {
+        selectedImageView.image = image
+        shareMemeButton.enabled = true
+        showHideToolbarAndNavbar(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Image picking
