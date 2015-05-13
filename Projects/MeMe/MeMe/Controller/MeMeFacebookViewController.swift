@@ -10,48 +10,71 @@ import UIKit
 
 let fbReuseIdentifier = "fbImageCell"
 
-class MeMeFacebookViewController: UIViewController, FBSDKLoginButtonDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate{
+class MeMeFacebookViewController: UIViewController, FBSDKLoginButtonDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate, FBManagerDelegate{
     var delegate: protocol<MeMeFacebookViewControllerDelegate>?
     
+    @IBOutlet weak var fbLogoutButton: UIBarButtonItem!
     @IBOutlet weak var fbCollectionView: UICollectionView!
     var fbLoginView:FBSDKLoginButton!
     var fbProfileManager:FBManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        fbProfileManager = FBManager.sharedInstance;
+        fbProfileManager.delegate = self
+        fbLoginView  = FBSDKLoginButton()
+        self.view.addSubview(fbLoginView)
+        
         // Do any additional setup after loading the view.
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             // User is already logged in, do work such as go to next view controller.
             println("User already logged in.")
             //fbLoginView.hidden = false
-            fbProfileManager = FBManager();
-            fbProfileManager.allAlbums()
-            //returnUserData()
+            self.view.sendSubviewToBack(fbLoginView)
+            fbLogoutButton.enabled = true
         }
         else
         {
             println("Adding Facebook button!")
-            fbLoginView  = FBSDKLoginButton()
-            self.view.addSubview(fbLoginView)
             fbLoginView.center = self.view.center
             fbLoginView.readPermissions = ["public_profile", "email", "user_photos", "user_friends"]
             fbLoginView.delegate = self
+            self.view.sendSubviewToBack(fbLoginView)
+            fbLogoutButton.enabled = false
         }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let delayInSeconds = 5.0
-        let popTime = dispatch_time(DISPATCH_TIME_NOW,
-            Int64(delayInSeconds * Double(NSEC_PER_SEC))) // 1
-        dispatch_after(popTime, dispatch_get_main_queue(), {
+        if (FBSDKAccessToken.currentAccessToken() == nil){
+            self.view.bringSubviewToFront(fbLoginView)
+            fbLoginView.hidden = false
+        }else{
+            onLoginSuccess()
+        }
+    }
+    
+    @IBAction func onFacebookLogout(sender: UIBarButtonItem) {
+        println("Login out")
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut() // this is an instance function
+        fbProfileManager.albums = []
+        
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            self.fbLoginView  = FBSDKLoginButton()
+            self.view.addSubview(self.fbLoginView)
+            self.view.bringSubviewToFront(self.fbLoginView)
+            self.fbLoginView.hidden = false
             self.fbCollectionView.reloadData()
+            self.fbLogoutButton.enabled = false
             
         })
     }
+    
     @IBAction func onCancel(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -61,15 +84,26 @@ class MeMeFacebookViewController: UIViewController, FBSDKLoginButtonDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
+    func didFinishLoadingAlbumDownload(albums: [FBAlbum]) {
+        self.fbCollectionView.reloadData()
+    }
+    
+    func onLoginSuccess(){
+        fbLogoutButton.enabled = true
+        self.view.sendSubviewToBack(fbLoginView)
+        fbProfileManager.allAlbums()
+    }
     
     // MARK: - Facebook login button delegate
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         println("User Logged In")
         //loginButton.hidden = true
         
+        
         if ((error) != nil)
         {
             // Process error
+            return
         }
         else if result.isCancelled {
             // Handle cancellations
@@ -82,6 +116,7 @@ class MeMeFacebookViewController: UIViewController, FBSDKLoginButtonDelegate, UI
                 // Do work
             }
         }
+        onLoginSuccess()
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {

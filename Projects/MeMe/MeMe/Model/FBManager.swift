@@ -10,6 +10,8 @@ import Foundation
 
 class FBManager {
     var albums:[FBAlbum] = []
+    var delegate: FBManagerDelegate?
+    static let sharedInstance = FBManager()
     
     func allAlbums(){
         if ((FBSDKAccessToken.currentAccessToken()) != nil) {
@@ -48,6 +50,7 @@ class FBManager {
                                         album.albumPicture = albumImage
                                         self.albums.append(album)
                                     }
+                                    self.delegate?.didFinishLoadingAlbumDownload(self.albums)
                                 })
                                 graphRequestConnection.start()
                                 
@@ -76,36 +79,15 @@ class FBManager {
             println(graphRequestConnection.URLResponse)
         })
         graphRequestConnection.start()
-        
-        return;
-        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-            if ((error) != nil)
-            {
-                // Process error
-                println("Error: \(error)")
-            }
-            else
-            {
-                let graphData = (result["data"] as! NSArray) as Array
-//                
-//                let pictureURL = obj.valueForKey("picture") as String;
-//                let url = NSURL(string: pictureURL);
-//                let picData = NSData(contentsOfURL: url);
-//                
-//                var picture:UIImage =
-//                
-//                var pictures:UIImage[] = UIImage[]();
-//                let graphData = result.valueForKey("data") as Array;
-//                var albums:AlbumModel[] =  AlbumModel[]();
-//                for obj:FBGraphObject in graphData{
-//                    println(obj.description);
-//                    let pictureURL = obj.valueForKey("picture") as String;
-//                    let url = NSURL(string: pictureURL);
-//                    let picData = NSData(contentsOfURL: url);
-//                    let img = UIImage(data: picData);
-//                    pictures.append(img)
-            }
-        })
-        
     }
+}
+
+
+protocol FBManagerDelegate : NSObjectProtocol {
+    
+    // The picker does not dismiss itself; the client dismisses it in these callbacks.
+    // The delegate will receive one or the other, but not both, depending whether the user
+    // confirms or cancels.
+    
+    func didFinishLoadingAlbumDownload(albums: [FBAlbum])
 }

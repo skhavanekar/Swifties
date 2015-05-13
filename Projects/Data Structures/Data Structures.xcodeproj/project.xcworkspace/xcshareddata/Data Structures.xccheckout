@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8E711CEC-9630-4127-9B59-55762C92BBBF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>214E72E63AB325EF63A611BBE650F13C4EAD1D55</key>
+		<string>https://github.com/skhavanekar/Swifties.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Projects/Data Structures/Data Structures.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>214E72E63AB325EF63A611BBE650F13C4EAD1D55</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/skhavanekar/Swifties.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>214E72E63AB325EF63A611BBE650F13C4EAD1D55</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>214E72E63AB325EF63A611BBE650F13C4EAD1D55</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Swifties</string>
+		</dict>
+	</array>
+</dict>
+</plist>

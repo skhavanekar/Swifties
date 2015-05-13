@@ -24,14 +24,17 @@ class MeMeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         topTextField.delegate = topTextFieldDelegate
         bottomTextField.delegate = bottomTextFieldDelegate
+        
+        topTextField.allowsEditingTextAttributes = true
         topTextField.defaultTextAttributes = MeMeTextFieldDelegate.memeTextAttributes
         bottomTextField.defaultTextAttributes = MeMeTextFieldDelegate.memeTextAttributes
-        topTextField.placeholder = MeMeTextFieldDelegate.topDefaultText
-        bottomTextField.placeholder = MeMeTextFieldDelegate.bottomDefaultText
-
+        topTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.textAlignment = NSTextAlignment.Center
+        
+        topTextField.text = MeMeTextFieldDelegate.topDefaultText
+        bottomTextField.text = MeMeTextFieldDelegate.bottomDefaultText
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -45,6 +48,7 @@ class MeMeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         if selectedImageView.image == nil{
             shareMemeButton.enabled = false
         }
+        showHideToolbarAndNavbar(false)
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -109,9 +113,15 @@ class MeMeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return keyboardSize.CGRectValue().height
     }
     func keyboardWillShow(notification:NSNotification){
+        if topTextField.editing{
+            return;
+        }
         self.view.frame.origin.y -= getKeyboardHeight(notification)
     }
     func keyboardWillHide(notification:NSNotification){
+        if topTextField.editing{
+            return;
+        }
         self.view.frame.origin.y += getKeyboardHeight(notification)
     }
     func subscribeToKeyboardNotifications(){
