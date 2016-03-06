@@ -15,6 +15,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var notificationRecordLabel: UILabel!
     @IBOutlet weak var stopRecordingButton: UIButton!
     
+    
+    
     var audioRecorder:AVAudioRecorder!
     
     let recordSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
@@ -22,17 +24,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         AVNumberOfChannelsKey : NSNumber(int: 1),
         AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.Medium.rawValue))]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         //Show/Hide for initial set up
         stopRecordingButton.hidden = true
-        notificationRecordLabel.text = "Tap to Record"
+        notificationRecordLabel.text = tapToRecordString
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,12 +41,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBAction func RecordAudio(sender: UIButton) {
         //Start recording
-        //TODO: Show notification "Recording in Progress!"
-        //TODO: Record voice.
         print("In RecordAudio")
         startRecordingButton.enabled = false
         stopRecordingButton.hidden = false
-        notificationRecordLabel.text = "Recording in Progress. \nTap stop to end Recording!"
+        notificationRecordLabel.text = recordingInProgressString
         StartRecording()
     }
     
