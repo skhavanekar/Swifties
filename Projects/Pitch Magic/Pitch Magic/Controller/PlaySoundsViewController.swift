@@ -18,7 +18,7 @@ enum ButtonType: Int {
     case Reverb = 5
 }
 
-class PlaySoundsViewController: UIViewController {
+class PlaySoundsViewController: UIViewController, PitchEnginePlayerDelegate {
     var receivedAudio:RecordedAudio!
     
     override func viewDidLoad() {
@@ -34,28 +34,29 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func initPitchEngine(){
+        PitchEngine.sharedInstance.playerDelegate = self
         PitchEngine.sharedInstance.prepareToPlay(receivedAudio)
     }
     
     @IBAction func playSound(sender: UIButton) {
         switch(ButtonType(rawValue: sender.tag)!) {
         case .Slow:
-            PitchEngine.sharedInstance.playAudioAtRate(0.5)
+            PitchEngine.sharedInstance.playSound(rate: 0.5)
             break
         case .Fast:
-            PitchEngine.sharedInstance.playAudioAtRate(1.5)
+            PitchEngine.sharedInstance.playSound(rate: 1.5)
             break
         case .Chipmunk:
-            PitchEngine.sharedInstance.playSoundWithVariablePitch(1100)
+            PitchEngine.sharedInstance.playSound(pitch: 1100)
             break
         case .Vader:
-            PitchEngine.sharedInstance.playSoundWithVariablePitch(-1100)
+            PitchEngine.sharedInstance.playSound(pitch: -1100)
             break
         case .Echo:
-            PitchEngine.sharedInstance.playAudioAtRate(0.5)
+            PitchEngine.sharedInstance.playSound(echo: true)
             break
         case .Reverb:
-            PitchEngine.sharedInstance.playAudioAtRate(0.5)
+            PitchEngine.sharedInstance.playSound(reverb: true)
             break
             
         }
@@ -64,5 +65,9 @@ class PlaySoundsViewController: UIViewController {
     
     @IBAction func stopAudio(sender: UIButton) {
         PitchEngine.sharedInstance.stopAllAudio()
+    }
+    
+    func didFailToPlay(error: NSError!) {
+        showAlert(error.description)
     }
 }

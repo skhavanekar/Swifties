@@ -10,10 +10,14 @@ import Foundation
 import AVFoundation
 
 
-protocol PitchEngineDelegate {
+protocol PitchEngineRecordingDelegate {
     func didStartRecording()
     func didFinishRecording(recordedAudio: RecordedAudio!)
     func didFailRecording(error:NSError!)
+}
+
+protocol PitchEnginePlayerDelegate {
+    func didFailToPlay(error:NSError!)
 }
 
 
@@ -25,12 +29,13 @@ class PitchEngine: NSObject, AVAudioRecorderDelegate {
     
     var audioRecorder: AVAudioRecorder!
     
-    var delegate: PitchEngineDelegate?
+    var recordingDelegate: PitchEngineRecordingDelegate?
+    var playerDelegate: PitchEnginePlayerDelegate?
     
     static let sharedInstance = PitchEngine()
     
     let recordingSettings = [
-        AVFormatIDKey: Int(kAudioFormatLinearPCM),
+        AVFormatIDKey: Int(kAudioFormatLinearPCM), // kAudioFormatMPEG4AAC - To generate failed recording case use this
         AVSampleRateKey: 44100.0,
         AVNumberOfChannelsKey:1,
         AVLinearPCMBitDepthKey:8,
@@ -39,6 +44,7 @@ class PitchEngine: NSObject, AVAudioRecorderDelegate {
         AVEncoderAudioQualityKey: AVAudioQuality.High.rawValue
     ]
     
+    // MARK: Recording
     func startRecording() {
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
         //Generating name for audio file to store
@@ -63,12 +69,12 @@ class PitchEngine: NSObject, AVAudioRecorderDelegate {
                 audioRecorder.meteringEnabled = true
                 audioRecorder.prepareToRecord()
                 audioRecorder.record()
-                delegate?.didStartRecording()
+                recordingDelegate?.didStartRecording()
                 
             } catch let error as NSError {
-                delegate?.didFailRecording(error)
+                recordingDelegate?.didFailRecording(error)
             } catch {
-                delegate?.didFailRecording(nil)
+                recordingDelegate?.didFailRecording(nil)
             }
         }
     }
@@ -84,15 +90,7 @@ class PitchEngine: NSObject, AVAudioRecorderDelegate {
         }
     }
     
-    
-    func playAudioAtRate(playBackRate:Float){
-        stopAllAudio()
-        audioPlayer.currentTime = 0
-        audioPlayer.rate = playBackRate
-        audioPlayer.play()
-    }
-    
-    
+    // MARK: Playback
     func prepareToPlay(receivedAudio:RecordedAudio!){
         audioFile = try! AVAudioFile(forReading: receivedAudio.filePathURL)
         
@@ -119,28 +117,64 @@ class PitchEngine: NSObject, AVAudioRecorderDelegate {
         audioPlayer.prepareToPlay()
     }
     
-    
-    func playSoundWithVariablePitch(pitchLevel:Float){
+    func playSound(rate rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false ) {
         stopAllAudio()
         
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        let audioPitch = AVAudioUnitTimePitch()
-        audioPitch.pitch = pitchLevel
-        audioEngine.attachNode(audioPitch)
         
-        audioEngine.connect(audioPlayerNode, to: audioPitch, format: nil)
-        audioEngine.connect(audioPitch, to: audioEngine.outputNode, format: nil)
+        // Node for adjusting rate/pitch
+        let changeRatePitchNode = AVAudioUnitTimePitch()
+        if let pitch = pitch {
+            changeRatePitchNode.pitch = pitch
+        }
+        if let rate = rate {
+            changeRatePitchNode.rate = rate
+        }
+        audioEngine.attachNode(changeRatePitchNode)
+        
+        
+        // Node for adding echo
+        let echoNode = AVAudioUnitDistortion()
+        echoNode.loadFactoryPreset(AVAudioUnitDistortionPreset.MultiEcho1)
+        audioEngine.attachNode(echoNode)
+        
+        // Node for adding reverb
+        let reverbNode = AVAudioUnitReverb()
+        reverbNode.loadFactoryPreset(AVAudioUnitReverbPreset.Cathedral)
+        reverbNode.wetDryMix = 50
+        audioEngine.attachNode(reverbNode)
+        
+        
+        //audioEngine.connect(audioPlayerNode, to: audioPitch, format: nil)
+        //audioEngine.connect(audioPitch, to: audioEngine.outputNode, format: nil)
+        
+        if echo == true && reverb == true {
+            connectAudioNodes(audioPlayerNode, changeRatePitchNode, echoNode, reverbNode, audioEngine.outputNode)
+        } else if echo == true {
+            connectAudioNodes(audioPlayerNode, changeRatePitchNode, echoNode, audioEngine.outputNode)
+        } else if reverb == true {
+            connectAudioNodes(audioPlayerNode, changeRatePitchNode, reverbNode, audioEngine.outputNode)
+        } else {
+            connectAudioNodes(audioPlayerNode, changeRatePitchNode, audioEngine.outputNode)
+        }
+        
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: onAudioCompletion)
-                
+        
         do {
             try audioEngine.start()
         } catch _ {
         }
         
         audioPlayerNode.play()
+    }
+    
+    func connectAudioNodes(nodes: AVAudioNode...) {
+        for x in 0..<nodes.count - 1 {
+            audioEngine.connect(nodes[x], to: nodes[x+1], format: audioFile.processingFormat)
+        }
     }
     
     
@@ -158,13 +192,13 @@ class PitchEngine: NSObject, AVAudioRecorderDelegate {
         audioEngine.reset()
     }
     
-    
+    // MARK: AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if(flag){
             let recordedAudio = RecordedAudio(filePathURL: recorder.url , title: recorder.url.lastPathComponent!)
-            delegate?.didFinishRecording(recordedAudio)
+            recordingDelegate?.didFinishRecording(recordedAudio)
         }else{
-            delegate?.didFinishRecording(nil)
+            recordingDelegate?.didFinishRecording(nil)
         }
     }
 }

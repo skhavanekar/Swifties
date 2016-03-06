@@ -11,7 +11,7 @@ import AVFoundation
 
 let playRecordedAudioSegueIdentifier = "stopRecordingSegue"
 
-class RecordSoundsViewController: UIViewController, PitchEngineDelegate {
+class RecordSoundsViewController: UIViewController, PitchEngineRecordingDelegate {
 
     @IBOutlet weak var startRecordingButton: UIButton!
     @IBOutlet weak var notificationRecordLabel: UILabel!
@@ -19,7 +19,7 @@ class RecordSoundsViewController: UIViewController, PitchEngineDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PitchEngine.sharedInstance.delegate = self
+        PitchEngine.sharedInstance.recordingDelegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -63,6 +63,7 @@ class RecordSoundsViewController: UIViewController, PitchEngineDelegate {
     func didFailRecording(error: NSError!) {
         if error != nil {
             notificationRecordLabel.text = error.description
+            showAlert(error.description)
         }
         startRecordingButton.enabled = true
         stopRecordingButton.hidden = true
