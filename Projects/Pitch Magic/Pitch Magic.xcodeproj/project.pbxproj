@@ -31,21 +31,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		427769BC1AA7BB4C00D804C5 /* PitchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchEngine.swift; path = Model/PitchEngine.swift; sourceTree = "<group>"; };
+		427769BC1AA7BB4C00D804C5 /* PitchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchEngine.swift; sourceTree = "<group>"; };
 		428F9C641A78246400E7CCAD /* Pitch Magic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Magic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		428F9C681A78246400E7CCAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		428F9C691A78246400E7CCAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		428F9C6B1A78246400E7CCAD /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordSoundsViewController.swift; path = Controller/RecordSoundsViewController.swift; sourceTree = "<group>"; };
+		428F9C6B1A78246400E7CCAD /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
 		428F9C6E1A78246400E7CCAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		428F9C701A78246400E7CCAD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		428F9C731A78246400E7CCAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		428F9C791A78246400E7CCAD /* Pitch MagicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pitch MagicTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		428F9C7E1A78246400E7CCAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		428F9C7F1A78246400E7CCAD /* Pitch_MagicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch_MagicTests.swift; sourceTree = "<group>"; };
-		428F9C8B1A78553100E7CCAD /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlaySoundsViewController.swift; path = Controller/PlaySoundsViewController.swift; sourceTree = "<group>"; };
+		428F9C8B1A78553100E7CCAD /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
 		428F9C911A7864A100E7CCAD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		428F9C931A7864FB00E7CCAD /* Noise.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Noise.mp3; sourceTree = "<group>"; };
-		429B585E1A78C7F2002C6CA9 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordedAudio.swift; path = Model/RecordedAudio.swift; sourceTree = "<group>"; };
+		429B585E1A78C7F2002C6CA9 /* RecordedAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordedAudio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 				429B585E1A78C7F2002C6CA9 /* RecordedAudio.swift */,
 				427769BC1AA7BB4C00D804C5 /* PitchEngine.swift */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		427769BF1AA7BB8F00D804C5 /* Controller */ = {
@@ -82,13 +82,21 @@
 				428F9C8B1A78553100E7CCAD /* PlaySoundsViewController.swift */,
 				428F9C6B1A78246400E7CCAD /* RecordSoundsViewController.swift */,
 			);
-			name = Controller;
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		428954D21C8BF74C002CE738 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				428F9C911A7864A100E7CCAD /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		428F9C5B1A78246400E7CCAD = {
 			isa = PBXGroup;
 			children = (
-				428F9C911A7864A100E7CCAD /* AVFoundation.framework */,
+				428954D21C8BF74C002CE738 /* Frameworks */,
 				428F9C661A78246400E7CCAD /* Pitch Magic */,
 				428F9C7C1A78246400E7CCAD /* Pitch MagicTests */,
 				428F9C651A78246400E7CCAD /* Products */,
@@ -109,7 +117,6 @@
 			children = (
 				427769BF1AA7BB8F00D804C5 /* Controller */,
 				427769BE1AA7BB5200D804C5 /* Model */,
-				428F9C6D1A78246400E7CCAD /* Main.storyboard */,
 				428F9C671A78246400E7CCAD /* Supporting Files */,
 			);
 			path = "Pitch Magic";
@@ -118,6 +125,7 @@
 		428F9C671A78246400E7CCAD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				428F9C6D1A78246400E7CCAD /* Main.storyboard */,
 				428F9C701A78246400E7CCAD /* Images.xcassets */,
 				428F9C691A78246400E7CCAD /* AppDelegate.swift */,
 				428F9C721A78246400E7CCAD /* LaunchScreen.xib */,
