@@ -10,20 +10,31 @@ import Foundation
 import AVFoundation
 
 class PitchEngine{
-    var audioPlayer:AVAudioPlayer
+    var audioPlayer:AVAudioPlayer!
     var audioEngine:AVAudioEngine
     var audioFile:AVAudioFile
     var error:NSError?
     
     init(receivedAudio:RecordedAudio!){
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathURL, error: nil)
+        audioFile = try! AVAudioFile(forReading: receivedAudio.filePathURL)
         
         audioEngine = AVAudioEngine()
         
-        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
-        AVAudioSession.sharedInstance().setActive(true, error: nil)
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch _ {
+        }
         
-        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL, error: &error)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: receivedAudio.filePathURL)
+        } catch let error1 as NSError {
+            error = error1
+            audioPlayer = nil
+        }
         audioPlayer.enableRate = true
         audioPlayer.prepareToPlay()
     }
@@ -38,10 +49,10 @@ class PitchEngine{
     func playSoundWithVariablePitch(pitchLevel:Float){
         stopAllAudio()
         
-        var audioPlayerNode = AVAudioPlayerNode()
+        let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        var audioPitch = AVAudioUnitTimePitch()
+        let audioPitch = AVAudioUnitTimePitch()
         audioPitch.pitch = pitchLevel
         audioEngine.attachNode(audioPitch)
         
@@ -50,15 +61,19 @@ class PitchEngine{
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: onAudioCompletion)
                 
-        audioEngine.startAndReturnError(nil)
+        do {
+            try audioEngine.start()
+        } catch _ {
+        }
+        
         audioPlayerNode.play()
     }
     
     func onAudioCompletion(){
         dispatch_async(dispatch_get_main_queue()){
-            println("Audio 1 playback just completed!")
+            print("Audio 1 playback just completed!")
         }
-        println("Audio playback just completed!")
+        print("Audio playback just completed!")
     }
     
     func stopAllAudio(){
