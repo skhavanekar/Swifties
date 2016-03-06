@@ -8,6 +8,16 @@
 
 import UIKit
 
+
+enum ButtonType: Int {
+    case Slow = 0
+    case Fast = 1
+    case Chipmunk = 2
+    case Vader = 3
+    case Echo = 4
+    case Reverb = 5
+}
+
 class PlaySoundsViewController: UIViewController {
     var receivedAudio:RecordedAudio!
     
@@ -26,40 +36,33 @@ class PlaySoundsViewController: UIViewController {
     func initPitchEngine(){
         PitchEngine.sharedInstance.prepareToPlay(receivedAudio)
     }
+    
+    @IBAction func playSound(sender: UIButton) {
+        switch(ButtonType(rawValue: sender.tag)!) {
+        case .Slow:
+            PitchEngine.sharedInstance.playAudioAtRate(0.5)
+            break
+        case .Fast:
+            PitchEngine.sharedInstance.playAudioAtRate(1.5)
+            break
+        case .Chipmunk:
+            PitchEngine.sharedInstance.playSoundWithVariablePitch(1100)
+            break
+        case .Vader:
+            PitchEngine.sharedInstance.playSoundWithVariablePitch(-1100)
+            break
+        case .Echo:
+            PitchEngine.sharedInstance.playAudioAtRate(0.5)
+            break
+        case .Reverb:
+            PitchEngine.sharedInstance.playAudioAtRate(0.5)
+            break
+            
+        }
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    @IBAction func PlaySlowAudio(sender: UIButton) {
-        PitchEngine.sharedInstance.playAudioAtRate(0.5)
-        
-    }
-    @IBAction func PlayFastAudio(sender: UIButton) {
-        PitchEngine.sharedInstance.playAudioAtRate(1.5)
-    }
-    
-    @IBAction func PlayChipmunkAudio(sender: UIButton) {
-       PitchEngine.sharedInstance.playSoundWithVariablePitch(1100)
-    }
-    
-    @IBAction func PlayDarthVaderAudio(sender: UIButton) {
-        PitchEngine.sharedInstance.playSoundWithVariablePitch(-1100)
-    }
     
     @IBAction func stopAudio(sender: UIButton) {
         PitchEngine.sharedInstance.stopAllAudio()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
