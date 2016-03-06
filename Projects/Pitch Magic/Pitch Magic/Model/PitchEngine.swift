@@ -9,13 +9,89 @@
 import Foundation
 import AVFoundation
 
-class PitchEngine{
+
+protocol PitchEngineDelegate {
+    func didStartRecording()
+    func didFinishRecording(recordedAudio: RecordedAudio!)
+}
+
+
+class PitchEngine: NSObject, AVAudioRecorderDelegate {
     var audioPlayer:AVAudioPlayer!
-    var audioEngine:AVAudioEngine
-    var audioFile:AVAudioFile
+    var audioEngine:AVAudioEngine!
+    var audioFile:AVAudioFile!
     var error:NSError?
     
-    init(receivedAudio:RecordedAudio!){
+    var audioRecorder: AVAudioRecorder!
+    
+    var delegate: PitchEngineDelegate?
+    
+    static let sharedInstance = PitchEngine()
+    
+    let recordingSettings = [
+        AVFormatIDKey: Int(kAudioFormatLinearPCM),
+        AVSampleRateKey: 44100.0,
+        AVNumberOfChannelsKey:1,
+        AVLinearPCMBitDepthKey:8,
+        AVLinearPCMIsFloatKey:false,
+        AVLinearPCMIsBigEndianKey:false,
+        AVEncoderAudioQualityKey: AVAudioQuality.High.rawValue
+    ]
+    
+    func startRecording() {
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        //Generating name for audio file to store
+        //In order to generate unique name, using current date-time and attaching extension
+        let currentDateTime = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "YYYYmmdd-HHmmss"
+        let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
+        
+        if let filePath = NSURL.fileURLWithPathComponents([dirPath, recordingName]) {
+            print(filePath)
+            
+            //set up audio session
+            let audioSession = AVAudioSession.sharedInstance()
+            do {
+                try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+                
+                //Init and prepate audio recorder
+                audioRecorder = try AVAudioRecorder(URL: filePath, settings: recordingSettings as! [String : AnyObject])
+                
+                audioRecorder.delegate = self
+                audioRecorder.meteringEnabled = true
+                audioRecorder.prepareToRecord()
+                audioRecorder.record()
+                
+            } catch let error as NSError {
+                print("Error \(error.description)")
+            } catch {
+                print("Some other error")
+            }
+        }
+    }
+    
+    func stopRecording() {
+        if audioRecorder != nil {
+            audioRecorder.stop()
+        }
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setActive(false)
+        } catch _ {
+        }
+    }
+    
+    
+    func playAudioAtRate(playBackRate:Float){
+        stopAllAudio()
+        audioPlayer.currentTime = 0
+        audioPlayer.rate = playBackRate
+        audioPlayer.play()
+    }
+    
+    
+    func prepareToPlay(receivedAudio:RecordedAudio!){
         audioFile = try! AVAudioFile(forReading: receivedAudio.filePathURL)
         
         audioEngine = AVAudioEngine()
@@ -34,17 +110,13 @@ class PitchEngine{
         } catch let error1 as NSError {
             error = error1
             audioPlayer = nil
+        } catch _ {
+            print("Error")
         }
         audioPlayer.enableRate = true
         audioPlayer.prepareToPlay()
     }
     
-    func playAudioAtRate(playBackRate:Float){
-        stopAllAudio()
-        audioPlayer.currentTime = 0
-        audioPlayer.rate = playBackRate
-        audioPlayer.play()
-    }
     
     func playSoundWithVariablePitch(pitchLevel:Float){
         stopAllAudio()
@@ -69,6 +141,8 @@ class PitchEngine{
         audioPlayerNode.play()
     }
     
+    
+    
     func onAudioCompletion(){
         dispatch_async(dispatch_get_main_queue()){
             print("Audio 1 playback just completed!")
@@ -82,4 +156,18 @@ class PitchEngine{
         audioEngine.reset()
     }
     
+    
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+        if(flag){
+            let recordedAudio = RecordedAudio(filePathURL: recorder.url , title: recorder.url.lastPathComponent!)
+            delegate?.didFinishRecording(recordedAudio)
+            
+            //self.performSegueWithIdentifier("stopRecordingSegue", sender: recordedAudio)
+        }else{
+            print("Audio recording failed to complete!")
+            delegate?.didFinishRecording(nil)
+            //startRecordingButton.enabled = true
+            //stopRecordingButton.hidden = true
+        }
+    }
 }

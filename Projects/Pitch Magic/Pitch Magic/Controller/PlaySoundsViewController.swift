@@ -20,7 +20,8 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func initPitchEngine(){
-        audioEngine = PitchEngine(receivedAudio:receivedAudio)
+        audioEngine = PitchEngine()
+        audioEngine.prepareToPlay(receivedAudio)
     }
 
     override func didReceiveMemoryWarning() {
