@@ -13,6 +13,7 @@ class MeMeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     @IBOutlet weak var shareMemeButton: UIBarButtonItem!
     
@@ -170,8 +171,8 @@ class MeMeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func showHideToolbarAndNavbar(shouldHide:Bool){
-        self.navigationController?.navigationBar.hidden = shouldHide
-        toolbar.hidden = shouldHide
+        self.navigationBar.hidden = shouldHide
+        self.toolbar.hidden = shouldHide
     }
     
     /*
