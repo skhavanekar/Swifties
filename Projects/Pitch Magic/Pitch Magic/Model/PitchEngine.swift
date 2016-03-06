@@ -13,6 +13,7 @@ import AVFoundation
 protocol PitchEngineDelegate {
     func didStartRecording()
     func didFinishRecording(recordedAudio: RecordedAudio!)
+    func didFailRecording(error:NSError!)
 }
 
 
@@ -62,11 +63,12 @@ class PitchEngine: NSObject, AVAudioRecorderDelegate {
                 audioRecorder.meteringEnabled = true
                 audioRecorder.prepareToRecord()
                 audioRecorder.record()
+                delegate?.didStartRecording()
                 
             } catch let error as NSError {
-                print("Error \(error.description)")
+                delegate?.didFailRecording(error)
             } catch {
-                print("Some other error")
+                delegate?.didFailRecording(nil)
             }
         }
     }
@@ -161,13 +163,8 @@ class PitchEngine: NSObject, AVAudioRecorderDelegate {
         if(flag){
             let recordedAudio = RecordedAudio(filePathURL: recorder.url , title: recorder.url.lastPathComponent!)
             delegate?.didFinishRecording(recordedAudio)
-            
-            //self.performSegueWithIdentifier("stopRecordingSegue", sender: recordedAudio)
         }else{
-            print("Audio recording failed to complete!")
             delegate?.didFinishRecording(nil)
-            //startRecordingButton.enabled = true
-            //stopRecordingButton.hidden = true
         }
     }
 }

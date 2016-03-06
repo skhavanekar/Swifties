@@ -40,7 +40,7 @@ class RecordSoundsViewController: UIViewController, PitchEngineDelegate {
         //Start recording
         startRecordingButton.enabled = false
         stopRecordingButton.hidden = false
-        notificationRecordLabel.text = recordingInProgressString
+        notificationRecordLabel.text = prepareForRecordingString
         
         PitchEngine.sharedInstance.startRecording()
     }
@@ -57,7 +57,15 @@ class RecordSoundsViewController: UIViewController, PitchEngineDelegate {
     }
     
     func didStartRecording() {
-        
+        notificationRecordLabel.text = recordingInProgressString
+    }
+    
+    func didFailRecording(error: NSError!) {
+        if error != nil {
+            notificationRecordLabel.text = error.description
+        }
+        startRecordingButton.enabled = true
+        stopRecordingButton.hidden = true
     }
     
     func didFinishRecording(recordedAudio: RecordedAudio!) {

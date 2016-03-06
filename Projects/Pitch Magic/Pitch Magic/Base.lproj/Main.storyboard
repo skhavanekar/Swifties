@@ -28,7 +28,7 @@
                                     <action selector="RecordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="67j-NN-Frx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diC-rr-kgB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diC-rr-kgB">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,11 +63,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Dcl-jS-eUn" secondAttribute="bottom" constant="20" id="000-oY-r9V"/>
+                            <constraint firstItem="diC-rr-kgB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="3d3-Fx-MSm"/>
                             <constraint firstItem="diC-rr-kgB" firstAttribute="top" secondItem="bNh-fe-k1C" secondAttribute="bottom" constant="30" id="Fb6-WY-LvO"/>
                             <constraint firstAttribute="centerX" secondItem="Dcl-jS-eUn" secondAttribute="centerX" id="M1p-D2-TYM"/>
                             <constraint firstAttribute="centerX" secondItem="bNh-fe-k1C" secondAttribute="centerX" id="NTQ-EP-vVV"/>
                             <constraint firstAttribute="centerY" secondItem="bNh-fe-k1C" secondAttribute="centerY" id="VuE-Ho-bwW"/>
                             <constraint firstAttribute="centerX" secondItem="diC-rr-kgB" secondAttribute="centerX" id="cmO-a0-tL8"/>
+                            <constraint firstItem="diC-rr-kgB" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="gIH-TP-vC9"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -76,12 +78,14 @@
                                 <exclude reference="Dcl-jS-eUn"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="000-oY-r9V"/>
-                                <exclude reference="Fb6-WY-LvO"/>
-                                <exclude reference="cmO-a0-tL8"/>
-                                <exclude reference="M1p-D2-TYM"/>
                                 <exclude reference="NTQ-EP-vVV"/>
                                 <exclude reference="VuE-Ho-bwW"/>
+                                <exclude reference="3d3-Fx-MSm"/>
+                                <exclude reference="Fb6-WY-LvO"/>
+                                <exclude reference="cmO-a0-tL8"/>
+                                <exclude reference="gIH-TP-vC9"/>
+                                <exclude reference="M1p-D2-TYM"/>
+                                <exclude reference="000-oY-r9V"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -91,12 +95,14 @@
                                 <include reference="Dcl-jS-eUn"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="000-oY-r9V"/>
-                                <include reference="Fb6-WY-LvO"/>
-                                <include reference="cmO-a0-tL8"/>
-                                <include reference="M1p-D2-TYM"/>
                                 <include reference="NTQ-EP-vVV"/>
                                 <include reference="VuE-Ho-bwW"/>
+                                <include reference="3d3-Fx-MSm"/>
+                                <include reference="Fb6-WY-LvO"/>
+                                <include reference="cmO-a0-tL8"/>
+                                <include reference="gIH-TP-vC9"/>
+                                <include reference="M1p-D2-TYM"/>
+                                <include reference="000-oY-r9V"/>
                             </mask>
                         </variation>
                     </view>

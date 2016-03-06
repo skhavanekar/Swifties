@@ -10,7 +10,6 @@ import UIKit
 
 class PlaySoundsViewController: UIViewController {
     var receivedAudio:RecordedAudio!
-    var audioEngine:PitchEngine!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +18,13 @@ class PlaySoundsViewController: UIViewController {
         initPitchEngine()
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        PitchEngine.sharedInstance.stopAllAudio()
+    }
+    
     func initPitchEngine(){
-        audioEngine = PitchEngine()
-        audioEngine.prepareToPlay(receivedAudio)
+        PitchEngine.sharedInstance.prepareToPlay(receivedAudio)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,23 +34,23 @@ class PlaySoundsViewController: UIViewController {
     
 
     @IBAction func PlaySlowAudio(sender: UIButton) {
-        audioEngine.playAudioAtRate(0.5)
+        PitchEngine.sharedInstance.playAudioAtRate(0.5)
         
     }
     @IBAction func PlayFastAudio(sender: UIButton) {
-        audioEngine.playAudioAtRate(1.5)
+        PitchEngine.sharedInstance.playAudioAtRate(1.5)
     }
     
     @IBAction func PlayChipmunkAudio(sender: UIButton) {
-       audioEngine.playSoundWithVariablePitch(1100)
+       PitchEngine.sharedInstance.playSoundWithVariablePitch(1100)
     }
     
     @IBAction func PlayDarthVaderAudio(sender: UIButton) {
-        audioEngine.playSoundWithVariablePitch(-1100)
+        PitchEngine.sharedInstance.playSoundWithVariablePitch(-1100)
     }
     
     @IBAction func stopAudio(sender: UIButton) {
-        audioEngine.stopAllAudio()
+        PitchEngine.sharedInstance.stopAllAudio()
     }
     /*
     // MARK: - Navigation
